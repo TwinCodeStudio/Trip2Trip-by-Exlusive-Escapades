@@ -1,0 +1,514 @@
+
+<!-- HTML document for Trip2Trip homepage -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding, viewport, and description -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trip2Trip by Exlusive Escapades — Premium villas and resorts in Mumbai, Maharashtra.">
+    <title>Trip2Trip | Mumbai Villas & Resorts</title>
+    <!-- Preconnect to Google Fonts for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"></noscript>
+
+    <!-- Critical CSS inlined for faster rendering -->
+    <style>
+    /* Critical CSS - Inline this in <head> for faster rendering */
+[data-theme="light"]{--gold:#c5a46d}
+[data-theme="dark"]{--gold:#d7bd88}
+:root{--bg:#0b1020;--card:#0f1629;--muted:#9aa4b2;--text:#e6eef8;--brand:#7c9eff;--brand-2:#9b7cff;--ring:rgba(124,158,255,.35)}
+[data-theme="light"]{--bg:#fff7e6;--card:#ffffff;--muted:#5c6b72;--text:#0a0f1a;--brand:#18b26a;--brand-2:#a1e59f;--ring:rgba(24,178,106,.35)}
+[data-theme="dark"]{--bg:#0b1020;--card:#0f1629;--muted:#9aa4b2;--text:#e6eef8;--brand:#7c9eff;--brand-2:#9b7cff;--ring:rgba(124,158,255,.35)}
+[data-theme="light"] html,[data-theme="light"] body{background:var(--bg)}
+[data-theme="light"] .nav{background:#18b26a;border-bottom-color:transparent}
+[data-theme="light"] .nav .menu a,[data-theme="light"] .nav .brand-text strong,[data-theme="light"] .nav .brand-text small{color:#ffffff}
+[data-theme="light"] .menu .btn{border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.05);color:#ffffff}
+[data-theme="light"] .footer{background:#18b26a;border-top-color:transparent}
+[data-theme="light"] .footer,.footer a{color:#ffffff}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:radial-gradient(1000px 600px at 80% -100px,rgba(156,124,255,.15),transparent),radial-gradient(800px 500px at -20% -100px,rgba(124,158,255,.18),transparent),var(--bg);color:var(--text);font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,'Noto Sans',sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+input,button{outline:none}
+
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+.nav{position:sticky;top:0;background:rgba(11,16,32,.6);backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid rgba(255,255,255,.06);z-index:40}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:20px}
+.logo{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));font-weight:700}
+.brand-text{display:flex;flex-direction:column;line-height:1}
+.menu{display:flex;align-items:center;gap:14px}
+
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:1px solid rgba(0,0,0,.08);background:rgba(0,0,0,.02);color:var(--text);cursor:pointer;transition:.3s ease}
+.btn-primary{background:linear-gradient(90deg,var(--brand),var(--brand-2));border-color:transparent}
+
+.hero{position:relative;padding:34px 0 18px;border-bottom:1px solid rgba(0,0,0,.06)}
+.hero-saffron{padding:80px 0 40px;min-height:90vh;display:flex;align-items:center}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1400px}
+.hero-title{font-family:'Playfair Display',serif;font-size:64px;font-weight:700;color:#fff;margin:0 0 12px;line-height:1.1}
+
+.auth{display:grid;place-items:center;min-height:calc(100vh - 64px - 120px)}
+.auth-card{max-width:380px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));border-radius:16px;overflow:hidden}
+.auth-head{padding:16px;border-bottom:1px solid rgba(255,255,255,.08)}
+.auth-body{padding:16px}
+.auth-body form{display:grid;gap:10px}
+.auth-body input{padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.02);color:var(--text)}
+
+.footer{margin-top:56px;border-top:1px solid rgba(0,0,0,.08);padding:28px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between}
+
+/* Mobile Navigation */
+.mobile-menu-toggle{display:none;flex-direction:column;justify-content:center;align-items:center;width:44px;height:44px;background:transparent;border:none;cursor:pointer;padding:0;z-index:50}
+.mobile-menu{position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(11,16,32,.95);backdrop-filter:saturate(160%) blur(20px);z-index:999;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease}
+
+/* Mobile First Responsive */
+@media (max-width:768px){
+  .desktop-menu{display:none!important}
+  .mobile-menu-toggle{display:flex}
+  .container{padding:0 16px}
+  .nav-inner{height:56px}
+  .brand-text{display:none}
+  .hero-saffron{padding:40px 0 20px;min-height:auto}
+  .hero-inner{grid-template-columns:1fr;gap:30px;text-align:center}
+  .hero-title{font-size:32px;line-height:1.2}
+}
+    </style>
+
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    <link rel="preload" href="styles-footer-bottom.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles-footer-bottom.css"></noscript>
+    <!-- Preload common navigation pages for faster mobile loads -->
+    <link rel="preload" href="details.html" as="document">
+    <link rel="preload" href="villa.html" as="document">
+    <link rel="preload" href="script.js" as="script">
+</head>
+<body>
+    <!-- Site header with navigation menu -->
+    <div id="nav-placeholder"></div>
+
+    <section class="hero hero-saffron">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="container hero-inner">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <!--<div class="location-badge">Mumbai, Maharashtra</div>-->
+                    <h1 class="hero-title">Luxury Villas & Resorts</h1>
+                    <p class="hero-subtitle">Trip2Trip by Exlusive Escapades</p>
+                    <p class="hero-description">Discover handpicked luxury accommodations with private pools, sea views, and personalized concierge service across Mumbai's most exclusive locations.</p>
+                    
+                </div>
+                
+                <div class="hero-search-panel">
+                    <div class="search-header">
+                        <h3>Find Your Perfect Stay</h3>
+                        <p>Search by location, property type, or amenities</p>
+                    </div>
+                    
+                    <div class="search-form">
+                        <div class="search-row">
+                            <div class="search-field">
+                                <label>Where</label>
+                                <input id="searchInput" type="text" placeholder="Alibaug, Juhu, Bandra..." aria-label="Search locations">
+                                <div id="suggestRoot"></div>
+                            </div>
+                            <div class="search-field">
+                                <label>Check-in</label>
+                                <input type="date" id="heroCheckIn">
+                            </div>
+                            <div class="search-field">
+                                <label>Check-out</label>
+                                <input type="date" id="heroCheckOut">
+                            </div>
+                            <div class="search-field">
+                                <label>Guests</label>
+                                <select id="heroGuests">
+                                    <option value="2">2 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                    <option value="6">6 Guests</option>
+                                    <option value="8">8+ Guests</option>
+                                </select>
+                            </div>
+                            <button id="searchBtn" class="btn btn-primary search-btn" type="button">
+                                <span>Search</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        
+                        <div class="property-filters">
+                            <button class="filter-chip is-active" data-type="all">All Properties</button>
+                            <button class="filter-chip" data-type="villa">Villas</button>
+                            <button class="filter-chip" data-type="resort">Resorts</button>
+                            <button class="filter-chip" data-type="seaview">Sea View</button>
+                            <button class="filter-chip" data-type="private-pool">Private Pool</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+<div class="hero-showcase" aria-hidden="true">
+    <div class="showcase-main" data-id="v1" aria-label="View Arabian Vista Villa details">
+        <img src="Images/bayA.jpg" alt="Luxury villa with private pool" loading="eager" width="800" height="600" decoding="async">
+        <div class="showcase-overlay">
+            <div class="showcase-info">
+                <span class="property-type">Villa</span>
+                <span class="property-location">Alibaug</span>
+            </div>
+        </div>
+    </div>
+    <div class="showcase-grid">
+        <div class="showcase-item" data-id="v2" aria-label="View Palm Grove Estate details">
+            <img src="Images/bayB.jpg" alt="Poolside lounge" loading="lazy" width="400" height="300" decoding="async">
+            <div class="showcase-label">Pool View</div>
+        </div>
+        <div class="showcase-item" data-id="v3" aria-label="View Sea Cliff Mansion details">
+            <img src="Images/bayC.jpg" alt="Modern villa" loading="lazy" width="400" height="300" decoding="async">
+            <div class="showcase-label">Modern Design</div>
+        </div>
+    </div>
+        </div>
+    </section>
+
+    <main class="container" id="explore">
+        <div class="section-header">
+            <h2>Explore Mumbai Stays</h2>
+            <p class="muted">Hand-picked luxury villas and resorts across the city and coast.</p>
+        </div>
+        <div id="grid" class="grid"></div>
+    </main>
+
+    <section class="container" id="collections">
+        <div class="section-header">
+            <h3>Browse by theme</h3>
+        </div>
+        <div class="collections">
+            <a class="collection" data-type="seaview">
+                <span>Sea View</span>
+            </a>
+            <a class="collection" data-type="private-pool">
+                <span>Private Pool</span>
+            </a>
+            <a class="collection" data-type="family">
+                <span>Family Friendly</span>
+            </a>
+            <a class="collection" data-type="luxury">
+                <span>Ultra Luxury</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="container about" id="about">
+        <div class="section-header">
+            <h3>About Trip2Trip</h3>
+            <p class="muted">We curate premium stays and offer concierge support from inquiry to checkout.</p>
+        </div>
+        <div class="why">
+            <div class="why-card">
+                <h4>Curated Quality</h4>
+                <p class="muted">Every stay is vetted for design, comfort, and service.</p>
+            </div>
+            <div class="why-card">
+                <h4>Best Rate</h4>
+                <p class="muted">Direct bookings ensure the best available rates and perks.</p>
+            </div>
+            <div class="why-card">
+                <h4>Concierge</h4>
+                <p class="muted">From transfers to private chefs, we handle the details.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <div class="container footer-inner">
+            <div>
+                <div class="brand">
+                    <span class="logo">T2T</span>
+                    <div class="brand-text">
+                        <strong>Trip2Trip</strong>
+                        <small>by Exlusive Escapades</small>
+                    </div>
+                </div>
+                <p class="muted" style="margin-top:8px">Mumbai, Maharashtra • Luxury stays</p>
+            </div>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="login.html">Account</a>
+                <a href="#explore">Explore</a>
+            </div>
+        </div>
+        <div class="container footer-contact">
+            <div class="contact-info">
+                <h4>Contact</h4>
+                <ul>
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <a href="mailto:owner@trip2trip.example">owner@trip2trip.example</a>
+                    </li>
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92V19a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3 5.18 2 2 0 0 1 5 3h2.09A2 2 0 0 1 9 4.72l.45 2.17a2 2 0 0 1-.54 1.86L7.11 10.5a16 16 0 0 0 6.39 6.39l1.75-1.8a2 2 0 0 1 1.86-.54l2.17.45A2 2 0 0 1 22 16.92Z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                        <a href="tel:+919372560325">+91 9372560325</a>
+                    </li>
+                </ul>
+                <div class="socials">
+                    <a href="#" aria-label="Instagram" title="Instagram" class="social" data-brand="instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+                    </a>
+                    <a href="#" aria-label="Twitter" title="Twitter" class="social" data-brand="twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 5.9c-.7.3-1.5.6-2.3.7.8-.5 1.4-1.2 1.7-2.1-.7.4-1.6.8-2.5 1-1.3-1.4-3.6-1.5-5 .1-1 .9-1.3 2.4-.8 3.6-2.9-.1-5.6-1.6-7.3-3.9-.9 1.6-.4 3.7 1.2 4.7-.6 0-1.2-.2-1.7-.5 0 1.8 1.3 3.4 3.1 3.8-.5.1-1 .2-1.5.1.4 1.5 1.9 2.6 3.6 2.6-1.4 1.1-3.2 1.8-5.1 1.8H2c1.8 1.1 3.9 1.8 6.2 1.8 7.4 0 11.5-6.3 11.2-11.9.8-.5 1.5-1.2 2.1-2Z" fill="currentColor"/></svg>
+                    </a>
+                    <a href="#" aria-label="Facebook" title="Facebook" class="social" data-brand="facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 10h3l-1 4h-2v8h-4v-8H7v-4h2V8a4 4 0 0 1 4-4h3v4h-3a1 1 0 0 0-1 1v1Z" fill="currentColor"/></svg>
+                    </a>
+                </div>
+            </div>
+            <form id="footerContactForm" class="contact-form" novalidate>
+                <div class="form-grid">
+                    <label>
+                        <span>Name</span>
+                        <input type="text" id="contactName" placeholder="Your name" required>
+                    </label>
+                    <label>
+                        <span>Email</span>
+                        <input type="email" id="contactEmail" placeholder="you@example.com" required>
+                    </label>
+                    <label>
+                        <span>Phone</span>
+                        <input type="tel" id="contactPhone" placeholder="Your number" required>
+                    </label>
+                    <label class="full">
+                        <span>Message</span>
+                        <textarea id="contactMessage" rows="4" placeholder="Tell us what you need" required></textarea>
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="contactSubmit">Submit</button>
+                    <span class="footer-form-status" id="contactStatus" role="status" aria-live="polite"></span>
+                </div>
+            </form>
+        </div>
+    </footer>
+
+
+
+    <dialog id="bookingDialog" class="booking-dialog">
+        <form method="dialog" id="bookingForm" class="booking-card" novalidate>
+            <button class="dialog-close" value="close" aria-label="Close">×</button>
+            <div class="booking-media" id="bookingMedia" aria-hidden="true"></div>
+            <div class="booking-body">
+                <h3 id="bookingTitle">Reserve Your Stay</h3>
+                <p class="muted" id="bookingSubtitle"></p>
+                <div class="booking-grid">
+                    <label>
+                        <span>Check-in</span>
+                        <input type="date" id="checkIn" required>
+                    </label>
+                    <label>
+                        <span>Check-out</span>
+                        <input type="date" id="checkOut" required>
+                    </label>
+                    <label>
+                        <span>Guests</span>
+                        <input type="number" id="guestCount" min="1" max="16" value="2" required>
+                    </label>
+                    <label>
+                        <span>Name</span>
+                        <input type="text" id="guestName" placeholder="Full name" required>
+                    </label>
+                    <label>
+                        <span>Contact</span>
+                        <input type="tel" id="guestPhone" placeholder="Phone / WhatsApp" required>
+                    </label>
+                </div>
+                <button class="btn btn-primary btn-full" id="confirmBooking" type="submit">Confirm Booking Request</button>
+                <p class="form-note" id="bookingStatus" role="status" aria-live="polite"></p>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Page transition animation -->
+    <div id="pageTransition" class="page-transition">
+        <div class="walking-person">
+            <div class="person">
+                <div class="head"></div>
+                <div class="body"></div>
+                <div class="arm-left"></div>
+                <div class="arm-right"></div>
+                <div class="leg-left"></div>
+                <div class="leg-right"></div>
+            </div>
+            <div class="suitcase"></div>
+        </div>
+        <div class="transition-text">Loading your next adventure...</div>
+    </div>
+
+    <!-- Optimized JavaScript loading with preloading -->
+    <link rel="preload" href="data.js" as="script">
+    <link rel="preload" href="script.js" as="script">
+
+    <!-- Critical JavaScript inlined for faster execution -->
+    <script>
+        // Inline navigation and footer to eliminate extra HTTP requests
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inline navigation HTML
+            const navigationHTML = `
+                <header class="nav">
+                    <div class="container nav-inner">
+                        <a class="brand" href="index.html">
+                            <span class="logo">T2T</span>
+                            <div class="brand-text">
+                                <strong>Trip2Trip</strong>
+                                <small>by Exlusive Escapades</small>
+                            </div>
+                        </a>
+                        <nav class="menu desktop-menu">
+                            <a href="index.html#explore">Explore</a>
+                            <a href="index.html#collections">Themes</a>
+                            <a href="index.html#about">About</a>
+                            <a href="index.html#contact">Contact</a>
+                            <button id="themeToggle" class="btn" type="button" aria-label="Toggle theme">🌗</button>
+                            <a href="login.html" class="btn btn-primary">Account</a>
+                        </nav>
+                        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+                            <span class="hamburger-line"></span>
+                            <span class="hamburger-line"></span>
+                            <span class="hamburger-line"></span>
+                        </button>
+                    </div>
+                </header>
+            `;
+
+            // Insert navigation only (footer is already in HTML)
+            document.getElementById('nav-placeholder').innerHTML = navigationHTML;
+
+            // Initialize theme toggle
+            const themeToggle = document.getElementById('themeToggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    const html = document.documentElement;
+                    const currentTheme = html.getAttribute('data-theme');
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                    html.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                });
+
+                // Load saved theme
+                const savedTheme = localStorage.getItem('theme') || 'dark';
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+
+            // Initialize mobile menu
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileMenu = document.createElement('div');
+            mobileMenu.className = 'mobile-menu';
+            mobileMenu.innerHTML = `
+                <div class="mobile-menu-content">
+                    <div class="mobile-menu-header">
+                        <div class="brand">
+                            <span class="logo">T2T</span>
+                            <div class="brand-text">
+                                <strong>Trip2Trip</strong>
+                                <small>by Exlusive Escapades</small>
+                            </div>
+                        </div>
+                        <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+                    </div>
+                    <div class="mobile-menu-links">
+                        <a href="index.html#explore" class="mobile-menu-link">Explore</a>
+                        <a href="index.html#collections" class="mobile-menu-link">Themes</a>
+                        <a href="index.html#about" class="mobile-menu-link">About</a>
+                        <a href="index.html#contact" class="mobile-menu-link">Contact</a>
+                        <button id="mobileThemeToggle" class="btn mobile-menu-link" type="button" aria-label="Toggle theme">🌗 Theme</button>
+                        <a href="login.html" class="mobile-menu-link">Account</a>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(mobileMenu);
+
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.add('active');
+                });
+            }
+
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
+            if (mobileMenuClose) {
+                mobileMenuClose.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                });
+            }
+
+            // Initialize mobile theme toggle
+            const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+            if (mobileThemeToggle) {
+                mobileThemeToggle.addEventListener('click', function() {
+                    const html = document.documentElement;
+                    const currentTheme = html.getAttribute('data-theme');
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                    html.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                });
+            }
+
+
+        });
+    </script>
+
+    <!-- Non-critical JavaScript loaded asynchronously -->
+    <script src="data.js" defer></script>
+    <script src="script.js" defer></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        // Register Service Worker for offline support and caching
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('Service Worker registered successfully:', registration.scope);
+
+                        // Check for updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            if (newWorker) {
+                                newWorker.addEventListener('statechange', () => {
+                                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                        // New update available
+                                        if (confirm('New version available! Click OK to refresh and use the latest version.')) {
+                                            newWorker.postMessage({ action: 'skipWaiting' });
+                                            window.location.reload();
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    })
+                    .catch((error) => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
+
+    <div class="footer-bottom-bar">
+        <div class="container footer-bottom-inner">
+            <div class="copyright-text">© 2025 Trip2Trip. All Rights Reserved.</div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms &amp; Condition</a>
+            </div>
+            <div class="made-with">
+                Made with <a href="https://share.google/KQhHQpwJLBSnccTtf" target="_blank" rel="noopener noreferrer"><img src="Images/TwinCode Studio.png" alt="TwinCode Studio Logo" class="logo-placeholder"></a> by <a href="https://twincode.studio" target="_blank" rel="noopener noreferrer">TwinCode Studio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

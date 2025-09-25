@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trip2Trip — Detailed view for premium villas and resorts in Mumbai, Maharashtra.">
+    <title>Trip2Trip | Stay Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-footer-bottom.css">
+    <style>
+        .back-button {
+            position: fixed;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            background: var(--brand);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <button id="backBtn" class="back-button" aria-label="Go back">←</button>
+    <header class="nav">
+        <div class="container nav-inner">
+            <a class="brand" href="index.html">
+                <span class="logo">T2T</span>
+                <div class="brand-text">
+                    <strong>Trip2Trip</strong>
+                    <small>by Exlusive Escapades</small>
+                </div>
+            </a>
+            <nav class="menu desktop-menu">
+                <a href="index.html#explore">Explore</a>
+                <a href="index.html#collections">Themes</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+                <button id="themeToggle" class="btn" type="button" aria-label="Toggle theme">🌗</button>
+                <a href="login.html" class="btn btn-primary">Account</a>
+            </nav>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+        <nav class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <div class="mobile-menu-header">
+                    <a class="brand" href="index.html">
+                        <span class="logo">T2T</span>
+                        <div class="brand-text">
+                            <strong>Trip2Trip</strong>
+                            <small>by Exlusive Escapades</small>
+                        </div>
+                    </a>
+                    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close mobile menu">×</button>
+                </div>
+                <div class="mobile-menu-links">
+                    <a href="index.html#explore" class="mobile-menu-link">Explore</a>
+                    <a href="index.html#collections" class="mobile-menu-link">Themes</a>
+                    <a href="index.html#about" class="mobile-menu-link">About</a>
+                    <a href="index.html#contact" class="mobile-menu-link">Contact</a>
+                    <a href="login.html" class="mobile-menu-link">Account</a>
+                    <button id="mobileThemeToggle" class="mobile-menu-link btn" type="button" aria-label="Toggle theme">🌗 Theme</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container" id="detailsRoot" style="padding:20px 0 40px"></main>
+
+    <dialog id="bookingDialog" class="booking-dialog">
+        <form method="dialog" id="bookingForm" class="booking-card" novalidate>
+            <button class="dialog-close" value="close" aria-label="Close">×</button>
+            <div class="booking-media" id="bookingMedia" aria-hidden="true"></div>
+            <div class="booking-body">
+                <h3 id="bookingTitle">Reserve Your Stay</h3>
+                <p class="muted" id="bookingSubtitle"></p>
+                <div class="booking-grid">
+                    <label>
+                        <span>Check-in</span>
+                        <input type="date" id="checkIn" required>
+                    </label>
+                    <label>
+                        <span>Check-out</span>
+                        <input type="date" id="checkOut" required>
+                    </label>
+                    <label>
+                        <span>Guests</span>
+                        <input type="number" id="guestCount" min="1" max="16" value="2" required>
+                    </label>
+                    <label>
+                        <span>Name</span>
+                        <input type="text" id="guestName" placeholder="Full name" required>
+                    </label>
+                    <label>
+                        <span>Contact</span>
+                        <input type="tel" id="guestPhone" placeholder="Phone / WhatsApp" required>
+                    </label>
+                </div>
+                <button class="btn btn-primary btn-full" id="confirmBooking" type="submit">Confirm Booking Request</button>
+                <p class="form-note" id="bookingStatus" role="status" aria-live="polite"></p>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="data.js"></script>
+    <script src="script.js" defer></script>
+    <script src="details.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            if (typeof initNavigation === 'function') initNavigation();
+            const backBtn = document.getElementById('backBtn');
+            if (backBtn) {
+                backBtn.addEventListener('click', function() {
+                    window.history.back();
+                });
+            }
+        });
+    </script>
+
+    <div class="footer-bottom-bar">
+        <div class="container footer-bottom-inner">
+            <div class="copyright-text">© 2025 Trip2Trip. All Rights Reserved.</div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms &amp; Condition</a>
+            </div>
+            <div class="made-with">
+                Made with <a href="https://share.google/KQhHQpwJLBSnccTtf" target="_blank" rel="noopener noreferrer"><img src="Images/TwinCode Studio.png" alt="TwinCode Studio Logo" class="logo-placeholder"></a> by <a href="https://twincode.studio" target="_blank" rel="noopener noreferrer">TwinCode Studio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

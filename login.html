@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip2Trip | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-footer-bottom.css">
+    <style>
+        .back-button {
+            position: fixed;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            background: var(--brand);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <button id="backBtn" class="back-button" aria-label="Go back">←</button>
+    <header class="nav">
+        <div class="container nav-inner">
+            <a class="brand" href="index.html">
+                <span class="logo">T2T</span>
+                <div class="brand-text">
+                    <strong>Trip2Trip</strong>
+                    <small>by Exlusive Escapades</small>
+                </div>
+            </a>
+            <nav class="menu">
+                <button id="themeToggle" class="btn" type="button" aria-label="Toggle theme">🌗</button>
+                <a href="signup.html" class="btn btn-outline">Sign Up</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="auth">
+        <div class="auth-card">
+            <div class="auth-head">
+                <h2 style="margin:0">Welcome back</h2>
+                <p class="muted" style="margin:6px 0 0">Login to manage your bookings.</p>
+            </div>
+            <div class="auth-body">
+                <form id="loginForm" novalidate>
+                    <input type="email" id="loginEmail" placeholder="Email address" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <button class="btn btn-primary" type="submit">Login</button>
+                    <div class="auth-divider">or</div>
+                    <button class="btn btn-outline google-btn" id="loginWithGoogle" type="button">
+                        <span>Continue with Google</span>
+                    </button>
+                    <p class="form-note" id="loginStatus" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js" defer></script>
+    <script src="auth.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            const backBtn = document.getElementById('backBtn');
+            if (backBtn) {
+                backBtn.addEventListener('click', function() {
+                    window.history.back();
+                });
+            }
+        });
+    </script>
+
+    <div class="footer-bottom-bar">
+        <div class="container footer-bottom-inner">
+            <div class="copyright-text">© 2025 Trip2Trip. All Rights Reserved.</div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms &amp; Condition</a>
+            </div>
+            <div class="made-with">
+                Made with <a href="https://share.google/KQhHQpwJLBSnccTtf" target="_blank" rel="noopener noreferrer"><img src="Images/TwinCode Studio.png" alt="TwinCode Studio Logo" class="logo-placeholder"></a> by <a href="https://twincode.studio" target="_blank" rel="noopener noreferrer">TwinCode Studio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
